@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bikespeed</title>
-    <%= csrf_meta_tags %>
+    <title>Bikespeed Custom Cycles</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   </head>
 
   <body>
@@ -14,15 +17,43 @@
 
 
     <p class="navbar-text pull-right">
-    <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>.
-        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-    <% else %>
-        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-    <% end %>
-    </p>
-    <%= yield %>
+   </p>
+        <!-- Navbar (sit on top) -->
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card-2">
+                <%= link_to '<b>BIKESPEED</b> Custom Cycle'.html_safe, root_path, :class=> 'w3-bar-item w3-button' %>
+                <!-- Float links to the right. Hide them on small screens -->
+                <div class="w3-right w3-hide-small">
+                    <a href="#projects" class="w3-bar-item w3-button">Productos</a>
+                    <a href="#about" class="w3-bar-item w3-button">About</a>
+                    <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+                    <% if user_signed_in? %>
+                        Logged in as <strong><%= current_user.email %></strong>.
+                        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'w3-bar-item w3-button' %> |
+                        <%= button_to "Logout", destroy_user_session_path, method: :delete, :class => 'w3-bar-item w3-button'  %>
+                    <% else %>
+                        <%= link_to "Sign up", new_user_registration_path, :class => 'w3-bar-item w3-button'  %> |
+                        <%= link_to "Login", new_user_session_path, :class => 'w3-bar-item w3-button'  %>
+                    <% end %>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <%= yield %>
+        <footer class="w3-center w3-black w3-padding-16">
+            <div class="w3-col l3 m6 w3-margin-bottom">
+            </div>
+            <div class="w3-col l3 m6 w3-margin-bottom">
+                <ul class="company-social">
+                    <li class="social-facebook"><a href="https://www.facebook.com/bikespeed.customcycles" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li class="social-twitter"><a href="https://twitter.com/bikespeed1" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                    <li class="social-vimeo"><a href="https://instagram.com/bikespeed/" target="_blank"><i class="fa fa-instagram"></i></i></a></li>
+                </ul>
+            </div>
+        </footer>
+
   </body>
 </html>

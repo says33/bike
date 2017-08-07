@@ -25,5 +25,9 @@
   <%= @product.count %>
 </p>
 
+
+<% @product.assets.each do | asset | %>
+    <%= image_tag(asset.url_file) %>
+<% end %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
